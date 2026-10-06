@@ -1,0 +1,86 @@
+#include<iostream>
+#include<string>
+using namespace std;
+ int main(){
+     //======== DECLARACION DE VARIABLES===========
+     
+    string nombreCompleto;
+    int edad;
+    char genero;
+    float peso, altura;
+    char estrato;
+    bool tieneAlergias;
+    char respuestaAlergia;
+    
+    string direccion;
+    string telefono;
+    string correo;
+    
+     //======== CAPTURA DE DATOS ===========
+     
+    cout<<"=====================================\n";
+    cout<<"SISTEMA DE ADMISION - CENTRO DE SALUD\n";
+    cout<<"==================================\n";
+    
+    // Datos personales
+    cout<<"Ingrese su nombre completo: ";
+    getline(cin, nombreCompleto);
+    
+    cout<<"Ingrese la edad: ";
+    cin>> edad;
+    
+    cout<<"Ingrese su genero (M/F/O): ";
+    cin>> genero;
+    
+    cout<<"Ingrese el estrato socioeconomico (1-6): ";
+    cin>> estrato;
+    
+    // Medidas fisicas
+    
+    cout << "Ingrese el peso (kg): ";
+    cin >> peso;
+    
+    cout << "Ingrese la altura (metros, ej: 1.75): ";
+    cin >> altura;
+    
+    cout << "Tiene alergias conocidas? (S/N): ";
+    cin >> respuestaAlergia;
+    tieneAlergias = (respuestaAlergia == 'S' || respuestaAlergia == 's') ? true : false;
+    
+    cin.ignore();
+
+    // Datos de contacto
+    cout << "Ingrese la direccion de residencia: ";
+    getline(cin, direccion);
+
+    cout << "Ingrese el numero de telefono: ";
+    cin >> telefono;
+
+    cout << "Ingrese el correo electronico: ";
+    cin >> correo;
+
+    //======== PROCESAMIENTO ===========
+    float imc = peso / (altura * altura);
+
+    //======== FICHA MEDICA ===========
+    cout << "\n\n=====================================\n";
+    cout << "              FICHA MEDICA           \n";
+    cout << "=====================================\n";
+    cout << "Paciente:    " << nombreCompleto << "\n";
+    cout << "Edad:        " << edad << " anos\n";
+    cout << "Genero:      " << genero << "\n";
+    cout << "Estrato:     " << estrato << "\n";
+    cout << "Contacto:    " << telefono << " | " << correo << "\n";
+    cout << "Direccion:   " << direccion << "\n";
+    cout << "-------------------------------------\n";
+    cout << "Peso:        " << peso << " kg\n";
+    cout << "Altura:      " << altura << " m\n";
+    cout << "Alergias:    " << (tieneAlergias ? "SI" : "NO") << "\n";
+    cout << "-------------------------------------\n";
+    cout << "IMC:         " << imc << "\n";
+    cout << "=====================================\n";
+
+    return 0;
+    
+    
+ }

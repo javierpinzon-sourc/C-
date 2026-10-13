@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    float lado1, lado2, lado3, perimetro;
+
+    cout << "Ingrese la longitud del primer lado: ";
+    cin >> lado1;
+    cout << "Ingrese la longitud del segundo lado: ";
+    cin >> lado2;
+    cout << "Ingrese la longitud del tercer lado: ";
+    cin >> lado3;
+
+    if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0) {
+        cout << "ERROR: Todos los lados deben ser mayores que cero." << "\n";
+    } 
+    else if ((lado1 + lado2 <= lado3) || (lado1 + lado3 <= lado2) || (lado2 + lado3 <= lado1)) {
+        cout << "ERROR: Las longitudes ingresadas no forman un triangulo." << "\n";
+    } 
+    else {
+        perimetro = lado1 + lado2 + lado3;
+        cout << "El perimetro del triangulo es: " << perimetro << "\n";
+
+        if (lado1 == lado2 && lado2 == lado3) {
+            cout << "Clasificacion: Equilatero" << "\n";
+        } 
+        else if (lado1 == lado2 || lado1 == lado3 || lado2 == lado3) {
+            cout << "Clasificacion: Isosceles" << "\n";
+        } 
+        else {
+            cout << "Clasificacion: Escaleno" << "\n";
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int dia, mes, anio;
+    int diasEnMes = 0;
+
+    cout << "Ingrese el dia: ";
+    cin >> dia;
+    cout << "Ingrese el mes: ";
+    cin >> mes;
+    cout << "Ingrese el anio: ";
+    cin >> anio;
+
+    if (anio <= 0) {
+        cout << "ERROR: El anio debe ser positivo." << "\n";
+    } 
+    else if (mes < 1 || mes > 12) {
+        cout << "ERROR: El mes ingresado no existe." << "\n";
+    } 
+    else {
+        if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
+            diasEnMes = 31;
+        } 
+        else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+            diasEnMes = 30;
+        } 
+        else if (mes == 2) {
+            if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) {
+                diasEnMes = 29;
+            } 
+            else {
+                diasEnMes = 28;
+            }
+        }
+
+        if (dia < 1 || dia > diasEnMes) {
+            cout << "ERROR: El dia " << dia << " no es valido para este mes." << "\n";
+        } 
+        else {
+            cout << "La fecha es valida." << "\n";
+            cout << "El mes " << mes << " tiene " << diasEnMes << " dias." << "\n";
+        }
+    }
+
+    return 0;
+}
